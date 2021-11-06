@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkWindow">
+    <property name="name">add_dialog</property>
+    <property name="can-focus">False</property>
+    <property name="modal">True</property>
+    <property name="type-hint">dialog</property>
+    <child>
+      <object class="GtkLayout">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkButton" id="ok_add">
+            <property name="label" translatable="yes">Ok</property>
+            <property name="width-request">40</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">210</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="cancel_add">
+            <property name="label" translatable="yes">Cancel</property>
+            <property name="width-request">40</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">110</property>
+            <property name="y">210</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="id_add">
+            <property name="width-request">100</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="placeholder-text" translatable="yes">ID</property>
+            <property name="input-purpose">number</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="fname_add">
+            <property name="width-request">100</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="placeholder-text" translatable="yes">First Name</property>
+            <property name="input-purpose">name</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">50</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="manager_add">
+            <property name="width-request">100</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="placeholder-text" translatable="yes">Manager</property>
+            <property name="input-purpose">name</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">90</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="salary_add">
+            <property name="width-request">100</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="placeholder-text" translatable="yes">Salary</property>
+            <property name="input-purpose">number</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">130</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="divnum_add">
+            <property name="width-request">100</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="placeholder-text" translatable="yes">Division number</property>
+            <property name="input-purpose">number</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">170</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMessageDialog">
+    <property name="can-focus">False</property>
+    <property name="modal">True</property>
+    <property name="type-hint">dialog</property>
+    <property name="message-type">error</property>
+    <property name="buttons">ok</property>
+    <property name="text" translatable="yes">Need fill all entry`s</property>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout-style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow">
+    <property name="name">add_dialog</property>
+    <property name="can-focus">False</property>
+    <property name="modal">True</property>
+    <property name="type-hint">dialog</property>
+    <child>
+      <object class="GtkLayout">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkButton" id="ok_delete">
+            <property name="label" translatable="yes">Ok</property>
+            <property name="width-request">40</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">60</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="cancel_delete">
+            <property name="label" translatable="yes">Cancel</property>
+            <property name="width-request">40</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">110</property>
+            <property name="y">60</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="combo_delete">
+            <property name="width-request">160</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <template class="main_window" parent="GtkApplicationWindow">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkLayout">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkTextView" id="display_main">
+            <property name="width-request">300</property>
+            <property name="height-request">350</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="editable">False</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="show_all_main">
+            <property name="label" translatable="yes">Show all</property>
+            <property name="name">all</property>
+            <property name="width-request">100</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">310</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button_search_main">
+            <property name="name">search_button</property>
+            <property name="width-request">20</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">180</property>
+            <property name="y">355</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="add_main">
+            <property name="label" translatable="yes">Add</property>
+            <property name="name">add</property>
+            <property name="width-request">100</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">310</property>
+            <property name="y">70</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="delete_main">
+            <property name="label" translatable="yes">Delete</property>
+            <property name="name">delete</property>
+            <property name="width-request">100</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">310</property>
+            <property name="y">130</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="search_main">
+            <property name="width-request">100</property>
+            <property name="height-request">20</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="placeholder-text" translatable="yes">Search by ID</property>
+            <property name="input-purpose">number</property>
+          </object>
+          <packing>
+            <property name="y">355</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

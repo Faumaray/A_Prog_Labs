@@ -1,0 +1,1 @@
+DROP TABLE workers-- This file should undo anything in `up.sql`

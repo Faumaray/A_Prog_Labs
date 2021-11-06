@@ -6,3 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+diesel = {version = "1.4.8", features = ["postgres"]}
+dotenv = "0.15.0"
+gtk = {version = "^0.3", package = "gtk4"}
+
+[[bin]]
+name = "lab_5"
+src = "src/main.rs"
+
+
+[lib]
+name = "db"
+src = "src/lib.rs"

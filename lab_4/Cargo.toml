@@ -1,8 +1,27 @@
 [package]
-name = "lab_4"
+name = "lab_3"
 version = "0.1.0"
+rust-version = "1.56"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { git = "https://github.com/clap-rs/clap"}
+anyhow = "1.0"
+futures = "0.3"
+rand = "0.8"
+tarpc = { version = "0.27", features = ["full"] }
+tokio = { version = "1.0", features = ["macros"] }
+
+[lib]
+name = "service"
+path = "src/lib.rs"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"

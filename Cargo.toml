@@ -1,7 +1,6 @@
 [workspace]
 members = [
 "lab_1",
-"lab_3",
 "lab_4",
 "lab_5",
 "lab_6",
