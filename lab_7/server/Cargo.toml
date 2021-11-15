@@ -1,0 +1,19 @@
+[package]
+name = "server7"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-http = "2"
+actix-web = "3"
+actix-flash = "0.2"
+actix-files = "0.5"
+indexmap = "=1.6.0"
+shared = { path = "../shared" }
+dotenv = "0.15.0"
+futures = { version = "^0.3" }
+futures-util = { version = "^0.3" }
+serde = "1.0.130"
+sea-orm = { version = "0.3.2", features = [ "sqlx-postgres", "runtime-async-std-native-tls", "macros" ], default-features = false }

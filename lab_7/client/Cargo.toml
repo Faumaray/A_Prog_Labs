@@ -1,0 +1,17 @@
+[package]
+name = "client7"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+yew = {git="https://github.com/yewstack/yew"}
+yew-router = {git="https://github.com/yewstack/yew"}
+wasm-bindgen = {version = "0.2.78", features = ["serde-serialize"]}
+dotenv = "0.15.0"
+reqwasm = "0.2.1"
+web-sys = {version = "0.3.55", features = ["HtmlTextAreaElement"]}
+serde_json = "1.0.69"
+shared = { path = "../shared" }
+
+[lib]
+crate-type = ["cdylib", "rlib"]

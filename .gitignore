@@ -1,2 +1,7 @@
 /target
 */target
+.env
+*/client/pkg
+*/Cargo.lock
+*/*/Cargo.lock
+*/*/target
