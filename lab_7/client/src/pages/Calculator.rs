@@ -36,7 +36,7 @@ impl Component for Calc {
             Msg::Increment => {
                 if self.f_value.is_some() && self.s_value.is_some()
                 {
-                    self.result = format!("{}",self.f_value.clone().unwrap().parse::<f32>().unwrap() + self.s_value.clone().unwrap().parse::<f32>().unwrap());
+                    self.result = format!("{}+{}={}",self.f_value.clone().unwrap(),self.s_value.clone().unwrap(),self.f_value.clone().unwrap().parse::<f32>().unwrap() + self.s_value.clone().unwrap().parse::<f32>().unwrap());
                 } 
                 else
                 {
@@ -47,7 +47,7 @@ impl Component for Calc {
             Msg::Dicrement => {
                 if self.f_value.is_some() && self.s_value.is_some()
                 {
-                    self.result = format!("{}",self.f_value.clone().unwrap().parse::<f32>().unwrap() - self.s_value.clone().unwrap().parse::<f32>().unwrap());
+                    self.result = format!("{}-{}={}",self.f_value.clone().unwrap(),self.s_value.clone().unwrap(),self.f_value.clone().unwrap().parse::<f32>().unwrap() - self.s_value.clone().unwrap().parse::<f32>().unwrap());
                 } 
                 else
                 {
@@ -58,7 +58,7 @@ impl Component for Calc {
             Msg::Multiply => {
                 if self.f_value.is_some() && self.s_value.is_some()
                 {
-                    self.result = format!("{}",self.f_value.clone().unwrap().parse::<f32>().unwrap() * self.s_value.clone().unwrap().parse::<f32>().unwrap());
+                    self.result = format!("{}*{}={}",self.f_value.clone().unwrap(),self.s_value.clone().unwrap(),self.f_value.clone().unwrap().parse::<f32>().unwrap() * self.s_value.clone().unwrap().parse::<f32>().unwrap());
                 } 
                 else
                 {
@@ -69,7 +69,15 @@ impl Component for Calc {
             Msg::Division => {
                 if self.f_value.is_some() && self.s_value.is_some()
                 {
-                    self.result = format!("{}",self.f_value.clone().unwrap().parse::<f32>().unwrap() / self.s_value.clone().unwrap().parse::<f32>().unwrap());
+                    if self.s_value.clone().unwrap().parse::<f32>().unwrap() != 0.0
+                    {
+                        self.result = format!("{}/{}={}",self.f_value.clone().unwrap(),self.s_value.clone().unwrap(),self.f_value.clone().unwrap().parse::<f32>().unwrap() / self.s_value.clone().unwrap().parse::<f32>().unwrap());
+                    }
+                    else
+                    {
+                        self.result = format!("Division by zero is prohibited");
+                    }
+                
                 } 
                 else
                 {
@@ -119,12 +127,13 @@ impl Component for Calc {
                             Msg::GetSecond(input.value())
                         })}
                     />
-                    <label>{self.result.clone()}</label>
                     <br/><br/>
                     <button onclick={ctx.link().callback(|_| Msg::Increment)}>{ "+" }</button>
                     <button onclick={ctx.link().callback(|_| Msg::Dicrement)}>{ "-" }</button>
                     <button onclick={ctx.link().callback(|_| Msg::Multiply)}>{ "*" }</button>
                     <button onclick={ctx.link().callback(|_| Msg::Division)}>{ "/" }</button>
+                    <br/><br/>
+                    <label>{self.result.clone()}</label>
                 </div>
             </center>
         }
