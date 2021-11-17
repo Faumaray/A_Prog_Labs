@@ -1,6 +1,7 @@
 use yew::{       
     prelude::*};
 use web_sys::HtmlTextAreaElement;
+use yew_router::history::History;
 
 pub enum Msg {
     GetById,
@@ -105,11 +106,17 @@ impl Component for Db {
                                     return true
                                 },
                                 _ => {
+                                    let history = yew_router::prelude::BrowserHistory::default();
+                                    &history.push(crate::switch::AppRoute::Error {msg: format!("Data Recieve Error")});
                                     return false
                                 }
                         }
                     },
-                    Err(error) => {return false},
+                    Err(error) => {
+                        let history = yew_router::prelude::BrowserHistory::default();
+                        &history.push(crate::switch::AppRoute::Error {msg: format!("{}", error)});
+                        return false
+                    },
                 }
             }
         }

@@ -1,5 +1,5 @@
 #[tarpc::service]
 pub trait Operand {
-    /// Returns a greeting for name.
+    /// Returns a sum of items in string.
     async fn add(items: String) -> String;
 }

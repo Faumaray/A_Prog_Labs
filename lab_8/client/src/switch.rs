@@ -1,8 +1,8 @@
 use yew_router::Routable;
 #[derive(Clone, Routable, PartialEq)]
 pub enum AppRoute {
-    #[at("/error")]
-    Error ,
+    #[at("/error/:msg")]
+    Error {msg: String},
     #[at("/calculator")]
     Calculator,
     #[at("/database")]

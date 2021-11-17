@@ -10,8 +10,8 @@ pub struct Index {
             AppRoute::Calculator => {
                 html! { <Calc />}
             },
-            AppRoute::Error  => {
-                html! { <Er /> }
+            AppRoute::Error { msg }  => {
+                html! { <Er msg={ msg.clone() }/> }
             },
             AppRoute::Database => {
                 html! { <Db /> }
