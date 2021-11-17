@@ -16,4 +16,4 @@ actix-files = "0.5"
 futures = { version = "^0.3" }
 futures-util = { version = "^0.3" }
 serde = "1.0.130"
-sea-orm = { version = "0.3.2", features = [ "sqlx-postgres", "runtime-tokio-rustls", "macros" ], default-features = false }
+sea-orm = { version = "0.3.2", features = [ "sqlx-postgres", "runtime-async-std-native-tls", "macros" ], default-features = false }

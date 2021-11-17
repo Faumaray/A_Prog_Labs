@@ -253,13 +253,15 @@ async fn database_action(data: web::Data<DatabaseState>, request_data: web::Json
                     };
                     web::Json(shared::SendMessageResponseDatabaseBody{
                         kind: shared::DatabaseRequest::Success,
-                        data: out_data
+                        data: out_data,
+                        error: String::new()
                     })
                 }
                 Err(error)=>{
                     web::Json(shared::SendMessageResponseDatabaseBody{
                         kind: shared::DatabaseRequest::Error,
-                        data: Vec::new()
+                        data: Vec::new(),
+                        error: format!("{}",error)
                     })
                 }
             }
@@ -271,30 +273,44 @@ async fn database_action(data: web::Data<DatabaseState>, request_data: web::Json
                     match get_data_by_id(value, &data.connection).await
                     {
                         Ok(data) =>{
-                            let worker = data.unwrap();
-                            let out_data: Vec<shared::WorkerResponse> = vec![shared::WorkerResponse{
-                                id: worker.id,
-                                fname: worker.fname,
-                                manager: worker.manager,
-                                salary: worker.salary,
-                                div_num: worker.div_num
-                            }];
-                            return web::Json(shared::SendMessageResponseDatabaseBody{
-                                kind: shared::DatabaseRequest::Success,
-                                data: out_data
-                            })
+                            if data.is_some()
+                            {
+                                let worker = data.unwrap();
+                                let out_data: Vec<shared::WorkerResponse> = vec![shared::WorkerResponse{
+                                    id: worker.id,
+                                    fname: worker.fname,
+                                    manager: worker.manager,
+                                    salary: worker.salary,
+                                    div_num: worker.div_num
+                                }];
+                                return web::Json(shared::SendMessageResponseDatabaseBody{
+                                    kind: shared::DatabaseRequest::Success,
+                                    data: out_data,
+                                    error: String::new()
+                                })
+                            }
+                            else
+                            {
+                                return web::Json(shared::SendMessageResponseDatabaseBody{
+                                    kind: shared::DatabaseRequest::Error,
+                                    data: Vec::new(),
+                                    error: format!("Not found")
+                                })
+                            }
                         }
                         Err(error)=>{
                             return web::Json(shared::SendMessageResponseDatabaseBody{
                                 kind: shared::DatabaseRequest::Error,
-                                data: Vec::new()
+                                data: Vec::new(),
+                                error: String::new()
                             })
                         }
                     }
                 }
                 Err(error) => {web::Json(shared::SendMessageResponseDatabaseBody{
                     kind: shared::DatabaseRequest::Error,
-                    data: Vec::new()
+                    data: Vec::new(),
+                    error: format!("{}",error)
                 })}
             }
         },
@@ -302,25 +318,38 @@ async fn database_action(data: web::Data<DatabaseState>, request_data: web::Json
             match get_data_by_name(request_data.text.clone(),&data.connection).await
             {
                 Ok(data) =>{
-                    let mut out_data: Vec<shared::WorkerResponse> = Vec::new();
-                    for value in data{
-                        out_data.push(shared::WorkerResponse{
-                            id: value.id,
-                            fname: value.fname,
-                            manager: value.manager,
-                            salary: value.salary,
-                            div_num: value.div_num
-                        });
-                    };
-                    web::Json(shared::SendMessageResponseDatabaseBody{
-                        kind: shared::DatabaseRequest::Success,
-                        data: out_data
-                    })
+                    if data.len() != 0
+                    {
+                        let mut out_data: Vec<shared::WorkerResponse> = Vec::new();
+                        for value in data{
+                            out_data.push(shared::WorkerResponse{
+                                id: value.id,
+                                fname: value.fname,
+                                manager: value.manager,
+                                salary: value.salary,
+                                div_num: value.div_num
+                            });
+                        };
+                        return web::Json(shared::SendMessageResponseDatabaseBody{
+                            kind: shared::DatabaseRequest::Success,
+                            data: out_data,
+                            error: String::new()
+                        })
+                    }
+                    else
+                    {
+                        return web::Json(shared::SendMessageResponseDatabaseBody{
+                            kind: shared::DatabaseRequest::Error,
+                            data: Vec::new(),
+                            error: format!("Not found")
+                        })
+                    }   
                 }
                 Err(error)=>{
                     web::Json(shared::SendMessageResponseDatabaseBody{
                         kind: shared::DatabaseRequest::Error,
-                        data: Vec::new()
+                        data: Vec::new(),
+                        error: format!("{}",error)
                     })
                 }
             }
@@ -328,7 +357,8 @@ async fn database_action(data: web::Data<DatabaseState>, request_data: web::Json
         _ => {
             web::Json(shared::SendMessageResponseDatabaseBody{
                 kind: shared::DatabaseRequest::Error,
-                data: Vec::new()
+                data: Vec::new(),
+                error: format!("Unknown Error or Bad Request")
             })
         }
     }

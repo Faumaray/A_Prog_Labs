@@ -10,6 +10,7 @@ pub struct SendMessageRequestDatabaseBody {
 pub struct SendMessageResponseDatabaseBody {
     pub kind: DatabaseRequest,
     pub data: Vec<WorkerResponse>,
+    pub error: String,
 }
 #[derive(Debug, Clone,Serialize, Deserialize)]
 pub struct SendMessageRequestCalculatorBody {
