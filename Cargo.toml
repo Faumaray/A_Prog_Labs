@@ -8,12 +8,16 @@ members = [
 "lab_7/client",
 "lab_8/server",
 "lab_8/client",
-"lab_9",
-"lab_10",
+"lab_9/server",
+"lab_9/client",
+"lab_10/server",
+"lab_10/client",
 "lab_11",
 "lab_12"
 ]
 exclude = [
     "lab_7/shared",
-    "lab_8/shared"
+    "lab_8/shared",
+    "lab_9/shared",
+    "lab_10/shared"
 ]

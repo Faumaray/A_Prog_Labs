@@ -1,42 +1,26 @@
 [config]
-workspace_default = false
+default_to_workspace = false
 
-[tasks.rollup8]
-script = "rollup ./lab_8/client/main.js --format iife --file ./lab_8/client/pkg/package.js"
+[tasks.rollup]
+script_runner = "@shell"
+script = ''' 
+rollup ./lab_${@}/client/main.js --format iife --file ./lab_${@}/client/pkg/package.js
+'''
 
-[tasks.build_client8]
+[tasks.build_client]
 description = "Build client"
 install_crate = { crate_name = "wasm-pack", binary = "wasm-pack", test_arg = "-V" }
 command = "wasm-pack"
-args = ["build", "lab_8/client", "--target", "web", "--out-name", "package", "--dev"]
+args = ["build", "./lab_${@}/client", "--target", "web", "--out-name", "package", "--dev"]
 
-[tasks.build_server8]
+[tasks.build_server]
 description = "Build server"
 command = "cargo"
-args = ["build","--package", "server8"]
+args = ["build","--package", "server${@}"]
 
-[tasks.start8]
-description = "Build and start Actix server with client on port 8000"
+[tasks.start]
+description = "Build and start Actix server with client on port 8100"
 command = "cargo"
-args = ["run", "--package", "server8"]
+args = ["run", "--package", "server${@}"]
 dependencies = ["build_client", "build_server", "rollup"]
 
-[tasks.rollup7]
-script = "rollup ./lab_7/client/main.js --format iife --file ./lab_7/client/pkg/package.js"
-
-[tasks.build_client7]
-description = "Build client"
-install_crate = { crate_name = "wasm-pack", binary = "wasm-pack", test_arg = "-V" }
-command = "wasm-pack"
-args = ["build", "lab_7/client", "--target", "web", "--out-name", "package", "--dev"]
-
-[tasks.build_server7]
-description = "Build server"
-command = "cargo"
-args = ["build","--package", "server7"]
-
-[tasks.start7]
-description = "Build and start Actix server with client on port 8000"
-command = "cargo"
-args = ["run", "--package", "server7"]
-dependencies = ["build_client", "build_server", "rollup"]

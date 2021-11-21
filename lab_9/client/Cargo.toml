@@ -1,0 +1,27 @@
+[package]
+name = "client9"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+yew = {git="https://github.com/yewstack/yew"}
+yew-router = {git="https://github.com/yewstack/yew"}
+wasm-bindgen = {version = "0.2.78", features = ["serde-serialize"]}
+reqwasm = "0.2.1"
+unicode-xid = "0.2.2"
+yewtil = "0.4"
+ryu = "1.0"
+serde_json = "1.0.69"
+anyhow = "1.0.45"
+shared = { path = "../shared" }
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+	"HtmlTextAreaElement",
+]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
