@@ -5,8 +5,8 @@ pub enum AppRoute {
     Error {msg: String},
     #[at("/")]
     Messenger,
-    #[at("/history/:name")]
-    HistoryByTime {name: String} ,
+    #[at("/history")]
+    HistoryByTime ,
     #[not_found]
     #[at("/404")]
     PageNotFound,

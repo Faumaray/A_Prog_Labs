@@ -13,8 +13,8 @@ pub struct Index {
             AppRoute::Error { msg }  => {
                 html! { <Er msg={ msg.clone() }/> }
             },
-            AppRoute::HistoryByTime { name } => {
-                html! { <HistoryByTime name={ name.clone() } /> }
+            AppRoute::HistoryByTime => {
+                html! { <HistoryByTime /> }
             },
             AppRoute::PageNotFound => {
                 html! { <PageNotFound/> }
